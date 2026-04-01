@@ -16,6 +16,8 @@ Supported physics materials: rigid bodies, elastic solids (MPM), sand (MPM), ela
 
 ## Pipeline Overview
 
+![Pipeline Overview](assets/pipeline.jpg)
+
 ```
 Input Image
     │
