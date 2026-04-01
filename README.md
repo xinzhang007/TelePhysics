@@ -142,3 +142,15 @@ If you find this work useful, please cite our paper:
 ## License
 
 See individual model licenses for third-party components. The TelePhysics pipeline code is released under the [MIT License](LICENSE).
+
+---
+
+## Acknowledgements
+
+We thank the following open-source projects that made this work possible:
+
+- [Depth-Anything-3](https://github.com/ByteDance-Seed/Depth-Anything-3) — Monocular depth estimation
+- [SAM 3D Objects](https://github.com/facebookresearch/sam-3d-objects) — Single-image 3D object reconstruction
+- [SAM3](https://github.com/facebookresearch/sam3) — Text-prompted image segmentation
+- [DiffSynth-Studio](https://github.com/modelscope/DiffSynth-Studio) — Video synthesis pipeline (Wan2.2-VACE)
+- [Video-Depth-Anything](https://github.com/DepthAnything/Video-Depth-Anything) — Per-frame video depth estimation
