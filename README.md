@@ -2,13 +2,9 @@
 
 **[Project Page](https://telephysics.github.io/) | [Paper](assets/paper.pdf)**
 
-TelePhysics is an image-to-physics-video pipeline. Given a single photograph and a text prompt, it automatically:
-
-1. Segments and inpaints objects (SAM3 + LaMa)
-2. Reconstructs 3D meshes (SAM3D + MoGe)
-3. Runs physically-based simulation (Genesis)
-4. Estimates per-frame depth (Video-Depth-Anything)
-5. Synthesizes a photorealistic video (Wan2.2-VACE)
+TelePhysics is a unified, training-free framework designed to facilitate holistic 3D scene generation and
+physically grounded video synthesis from a single input image. The figure showcases interactions among multiple
+objects across diverse scene
 
 Supported physics materials: rigid bodies, elastic solids (MPM), sand (MPM), elastoplastic (MPM), cloth (PBD), and liquid (SPH).
 
@@ -17,25 +13,6 @@ Supported physics materials: rigid bodies, elastic solids (MPM), sand (MPM), ela
 ## Pipeline Overview
 
 ![Pipeline Overview](assets/pipeline.jpg)
-
-```
-Input Image
-    │
-    ▼
-[Step 1] SAM3 Segmentation + LaMa Inpainting
-    │
-    ▼
-[Step 2] SAM3D 3D Mesh Generation
-    │
-    ▼
-[Step 3] Genesis Physics Simulation  ──► simulation frames (PNG)
-    │
-    ▼
-[Step 4] Video-Depth-Anything Depth Estimation
-    │
-    ▼
-[Step 5] Wan2.2-VACE Video Synthesis  ──► rendered video (MP4)
-```
 
 ---
 
