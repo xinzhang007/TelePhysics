@@ -1,0 +1,45 @@
+# Config for scene: dress1
+# White ornate robe/dress -> pbd_cloth with top fixed
+# object_0: white dress -> pbd_cloth
+
+simulation:
+  max_retries: 8
+  dist_thresh: 0.01
+  cos_thresh: 0.8
+  low_p: 5
+  n_steps: 300
+  fps: 60
+  camera_mv: 0
+
+objects:
+  0:
+    material: "pbd_cloth"
+    material_params:
+      rho: 4.0
+      static_friction: 0.15
+      kinetic_friction: 0.15
+      stretch_compliance: 1e-7
+      bending_compliance: 1e-5
+      stretch_relaxation: 0.3
+      bending_relaxation: 0.1
+      air_resistance: 0.002
+    x_off: 0.0
+    y_off: 0.0
+    z_off: 0.0
+    fixed: false
+    fix_top_ratio: 0.05
+    start_frame: 0
+    velocity: [0.0, 0.0, 0.0]
+
+forces:
+  - type: "wind"
+    direction: [1, 0.3, 0]
+    strength: 2.0
+    radius: 2.0
+    center: [0, 0, 0]
+    start_frame: -1
+
+  - type: "constant"
+    direction: [0, 0, -1]
+    strength: 2.0
+    start_frame: -1

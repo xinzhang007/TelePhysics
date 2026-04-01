@@ -1,0 +1,162 @@
+# ============================================================
+# TelePhysics — Scene Configuration Example
+# Place this file at: data/{scene_name}/config.yaml
+# All fields are optional; defaults are shown.
+# ============================================================
+
+simulation:
+
+  # ── Ground Plane Fitting (RANSAC) ──────────────────────────
+  max_retries: 8        # Number of retries with relaxed parameters if RANSAC fails
+  dist_thresh: 0.01     # RANSAC inlier distance threshold (meters); increase if fitting fails
+  cos_thresh: 0.8       # Minimum |normal · up_hint| to accept a plane as "horizontal"
+  low_p: 5              # Bottom percentile of points used for fitting (lower = closer to ground)
+
+  # ── Physics ────────────────────────────────────────────────
+  n_steps: 300          # Total simulation steps
+  fps: 60               # Output video frame rate
+
+  # ── Camera Optimization ────────────────────────────────────
+  # The camera position is optimized by minimizing a pixel-loss
+  # between the rendered scene and the reference image.
+  opt_dx: 0.0           # Search range along X axis (meters, symmetric: ±opt_dx)
+  opt_dy: 0.5           # Search range along Y axis
+  opt_dz: 0.5           # Search range along Z axis
+  opt_rand_n: 60        # Number of random candidates in the coarse search
+  w_obj: 1.0            # Weight for object-region pixel loss
+  w_bg: 0.2             # Weight for background pixel loss
+
+  # ── Camera Position Adjustments ────────────────────────────
+  camera_tre: 0.0       # Translate camera along its view ray by this distance (meters)
+  posy_off: 0.0         # Additional manual Y offset applied after optimization
+  posz_off: 0.0         # Additional manual Z offset applied after optimization
+
+  # ── Camera Movement During Simulation ──────────────────────
+  # Overridden by the --move CLI argument.
+  # camera_mv: 0        # 0=static, 1=orbit-right, 2=orbit-left,
+                        # 3=orbit-up, 4=orbit-down, 5=dolly-out, 6=dolly-in
+
+objects:
+  # Object index corresponds to the folder sam3d/object_{index}/
+  # Any unlisted object defaults to: rigid material, fixed=true, no velocity.
+
+  0:
+    # ── Material ──────────────────────────────────────────────
+    material: "rigid"   # Options: rigid | mpm_elastic | mpm_elastoplastic |
+                        #          mpm_sand | pbd_elastic | sph_liquid
+
+    # material_params is only relevant for non-rigid materials:
+    # material_params:
+    #   E:   3.0e5       # Young's modulus (mpm_elastic, mpm_elastoplastic)
+    #   nu:  0.2         # Poisson's ratio
+    #   rho: 1000.0      # Density kg/m³
+
+    # ── Surface Appearance (仅粒子类材料生效) ──────────────────
+    # rigid / mpm_elastic 不需要配置 surface。
+    # 其他材料若不指定则使用默认颜色:
+    #   mpm_sand:          [0.76, 0.70, 0.50]  # 沙色
+    #   mpm_elastoplastic: [0.72, 0.53, 0.39]  # 粘土色
+    #   pbd_elastic:       [0.90, 0.90, 0.92]  # 布料白
+    #   sph_liquid:        [0.20, 0.50, 0.90]  # 水蓝色
+    # surface_color: [0.76, 0.70, 0.50]  # RGB float [0-1], 可覆盖默认颜色
+    # vis_mode: "particle"               # "particle" | "visual"
+
+    # ── Initial Pose ──────────────────────────────────────────
+    fixed: false         # true = static obstacle; false = dynamic body
+    x_off: 0.0           # Position offset from mesh origin (meters)
+    y_off: 0.0
+    z_off: 0.0
+
+    # ── Velocity Trigger ──────────────────────────────────────
+    start_frame: -1      # Frame at which velocity is applied (-1 = never)
+    velocity: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    # For rigid bodies: [vx, vy, vz, wx, wy, wz]  (linear m/s + angular rad/s)
+    # For deformable:   [vx, vy, vz]
+
+  1:
+    material: "mpm_elastic"
+    fixed: true
+    material_params:
+      E: 3.0e5
+      nu: 0.2
+      rho: 800.0
+    x_off: 0.0
+    y_off: 0.0
+    z_off: 0.0
+    fixed: false
+    start_frame: 0
+    velocity: [0.0, 0.0, 0.0]
+    
+  # ── Additional Material Examples ──────────────────────────
+
+  # Cloth (PBD):
+  # 2:
+  #   material: "pbd_elastic"
+  #   fixed: false
+  #   material_params:
+  #     rho: 500.0
+  #     static_friction: 0.3
+  #     kinetic_friction: 0.2
+  #     stretch_compliance: 1.0e-4
+  #     bending_compliance: 1.0e-3
+  #     volume_compliance: 1.0e-6
+  #     stretch_relaxation: 0.1
+  #     bending_relaxation: 0.1
+  #     volume_relaxation: 0.2
+
+  # Sand:
+  # 3:
+  #   material: "mpm_sand"
+  #   fixed: false
+
+  # Liquid:
+  # 4:
+  #   material: "sph_liquid"
+  #   fixed: false
+
+# ============================================================
+# Force Fields
+# Applied to the entire scene. Added before scene.build().
+# Supported types: constant | wind | point | drag | noise | vortex | turbulence
+# ============================================================
+forces:
+  # - type: "constant"
+  #   direction: [0, 0, -1]    # Normalized direction of the force
+  #   strength: 9.8             # Acceleration magnitude
+  #   active: true              # Whether activated immediately (default: true)
+  #   start_frame: -1           # Frame to activate (-1 = from start)
+
+  # - type: "wind"
+  #   direction: [1, 0, 0]
+  #   strength: 5.0
+  #   radius: 1.0               # Cylinder radius
+  #   center: [0, 0, 0]         # Cylinder center
+
+  # - type: "point"
+  #   strength: 1.0             # Positive = attract, negative = repel
+  #   position: [0, 0, 0]
+  #   falloff_pow: 0.0
+  #   flow: 1.0
+
+  # - type: "drag"
+  #   linear: 0.1               # Linear drag coefficient
+  #   quadratic: 0.01           # Quadratic drag coefficient
+
+  # - type: "noise"
+  #   strength: 1.0
+
+  # - type: "vortex"
+  #   direction: [0, 0, 1]
+  #   center: [0, 0, 0]
+  #   strength_perpendicular: 20.0
+  #   strength_radial: 0.0
+  #   falloff_pow: 2.0
+  #   falloff_min: 0.01
+  #   falloff_max: .inf
+  #   damping: 0.0
+
+  # - type: "turbulence"
+  #   strength: 1.0
+  #   frequency: 3
+  #   flow: 0.0
+  #   seed: null

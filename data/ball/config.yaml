@@ -1,0 +1,37 @@
+# Auto-generated config for scene: ball3
+# Material assignments by Qwen2.5-VL analysis
+# object_0: orange sphere -> mpm_elastic
+
+simulation:
+  max_retries: 8
+  dist_thresh: 0.01
+  cos_thresh: 0.8
+  low_p: 5
+  n_steps: 300
+  fps: 60
+  camera_mv: 0
+
+objects:
+  0:
+    material: "mpm_elastic"
+    material_params:
+      E: 1000.0
+      nu: 0.48
+      rho: 1000.0
+    x_off: 0.0
+    y_off: 0.0
+    z_off: 0.0
+    fixed: false
+    start_frame: 0
+    velocity: [0.0, 0.0, 0.4]
+
+forces:
+  - type: "wind"
+    direction: [0, 0, -1]
+    strength: 3.0
+    radius: 2.0
+    center: [0, 0, 0]
+    start_frame: -1
+
+ 
+

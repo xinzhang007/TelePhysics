@@ -1,0 +1,31 @@
+# Auto-generated config for scene: sandhouse
+# Material assignments by Qwen2.5-VL analysis
+# object_0: sand castle -> mpm_sand
+
+simulation:
+  max_retries: 8
+  dist_thresh: 0.01
+  cos_thresh: 0.8
+  low_p: 5
+  n_steps: 300
+  fps: 60
+  camera_mv: 0
+
+objects:
+  0:
+    material: "mpm_sand"
+    surface_color: [0.76, 0.7, 0.5]
+    vis_mode: "particle"
+    x_off: 0.0
+    y_off: 0.0
+    z_off: 0.0
+    fixed: false
+    start_frame: 0
+    velocity: [0.0, 0.0, 0.0]
+
+forces:
+  - type: "constant"
+    direction: [0, 0, -1]
+    strength: 1.0
+    start_frame: -1
+

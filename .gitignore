@@ -1,0 +1,14 @@
+# Models
+models/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+
+# OS
+.DS_Store
+
+# Demo outputs
+demo/
