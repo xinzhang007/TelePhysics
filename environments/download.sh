@@ -7,10 +7,12 @@ set -e
 
 pip install -U huggingface_hub
 
-MODELS_DIR="./models"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "${SCRIPT_DIR}")"
+MODELS_DIR="${PROJECT_ROOT}/models"
 mkdir -p "${MODELS_DIR}"
 
-HF_CMD="huggingface-cli download --local-dir-use-symlinks False"
+HF_CMD="hf download"
 
 ################ SAM3 ################
 # Image segmentation model
@@ -39,14 +41,20 @@ wget -nc -P "${MODELS_DIR}/VDA" \
 wget -nc -P "${MODELS_DIR}/VDA" \
   https://huggingface.co/depth-anything/Video-Depth-Anything-Large/resolve/main/video_depth_anything_vitl.pth
 
-################ DiffSynth-Studio ################
+################ DiffSynth-Studio (replacement: DeepBeepMeep/Wan2.1) ################
 # VAE & T5 encoder for video synthesis
-${HF_CMD} DiffSynth-Studio/Wan-Series-Converted-Safetensors \
+# Original repo DiffSynth-Studio/Wan-Series-Converted-Safetensors was removed.
+# DeepBeepMeep/Wan2.1 contains the same safetensor files.
+${HF_CMD} DeepBeepMeep/Wan2.1 \
+  --include "models_t5_umt5-xxl-enc-bf16.safetensors" \
+            "models_clip_open-clip-xlm-roberta-large-vit-huge-14.safetensors" \
+            "Wan2.1_VAE.safetensors" \
+            "Wan2.2_VAE.safetensors" \
   --local-dir "${MODELS_DIR}/DiffSynth-Studio/Wan-Series-Converted-Safetensors"
 
 ################ PAI ################
 # Wan2.2-VACE video generation (high/low noise denoiser)
-${HF_CMD} PAI/Wan2.2-VACE-Fun-A14B \
+${HF_CMD} alibaba-pai/Wan2.2-VACE-Fun-A14B \
   --local-dir "${MODELS_DIR}/PAI/Wan2.2-VACE-Fun-A14B"
 
 ################ Wan-AI ################
