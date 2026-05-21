@@ -131,9 +131,14 @@ See [`configs/example_config.yaml`](configs/example_config.yaml) for the full re
 If you find this work useful, please cite our paper:
 
 ```bibtex
-@article{telephysics,
-  title   = {TelePhysics},
-  year    = {2025},
+@misc{zhang2026telephysicsphysicsgroundedmultiobjectscene,
+      title={TelePhysics: Physics-Grounded Multi-Object Scene Generation from a Single Image with Real-Time Interaction}, 
+      author={Xin Zhang and Yabo Chen and Yijie Fang and Wanying Qu and Haibin Huang and Chi Zhang and Feng Xu and Xuelong Li},
+      year={2026},
+      eprint={2605.20290},
+      archivePrefix={arXiv},
+      primaryClass={cs.GR},
+      url={https://arxiv.org/abs/2605.20290}, 
 }
 ```
 
