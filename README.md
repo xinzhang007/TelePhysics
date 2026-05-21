@@ -1,6 +1,6 @@
 # TelePhysics
 
-**[Project Page](https://telephysics.github.io/) | [Paper](assets/paper.pdf)**
+**[Project Page](https://telephysics.github.io/) | [Paper](assets/paper.pdf) | [arXiv](https://arxiv.org/abs/2605.20290)** 
 
 TelePhysics is a unified, training-free framework designed to facilitate holistic 3D scene generation and
 physically grounded video synthesis from a single input image. The figure showcases interactions among multiple
