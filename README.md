@@ -1,4 +1,3 @@
-```markdown
 # TelePhysics: Physics-Grounded Multi-Object Scene Generation from a Single Image
 
 [![ArXiv](https://img.shields.io/badge/ArXiv-2605.20290-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2605.20290)
@@ -9,7 +8,7 @@ TelePhysics is a unified, training-free framework for holistic 3D scene generati
 
 Supported physics materials include **rigid bodies**, **elastic solids**, **sand**, **elastoplastic materials**, **cloth**, and **liquid**.
 
-**Authors:**
+**Authors:**  
 Xin Zhang, Yabo Chen, Yijie Fang, Wanying Qu, Haibin Huang, Chi Zhang, Feng Xu, Xuelong Li
 
 ---
@@ -224,4 +223,3 @@ We thank the following open-source projects that made this work possible:
 - [SAM3](https://github.com/facebookresearch/sam3) — Text-prompted image segmentation
 - [DiffSynth-Studio](https://github.com/modelscope/DiffSynth-Studio) — Video synthesis pipeline, Wan2.2-VACE
 - [Video-Depth-Anything](https://github.com/DepthAnything/Video-Depth-Anything) — Per-frame video depth estimation
-```
