@@ -8,9 +8,8 @@ TelePhysics is a unified, training-free framework for holistic 3D scene generati
 
 Supported physics materials include **rigid bodies**, **elastic solids**, **sand**, **elastoplastic materials**, **cloth**, and **liquid**.
 
-**Authors:**  
-Xin Zhang, Yabo Chen, Yijie Fang, Wanying Qu, Haibin Huang, Chi Zhang, Feng Xu, Xuelong Li
-
+## 🔥 News
+- **[2026-07-10]** TelePhysics has been accepted to **ACM MM 2026**! 
 ---
 
 ## 🌐 Pipeline Overview
