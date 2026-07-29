@@ -1,4 +1,4 @@
-name: telephysics
+name: physomni-pq
 channels:
   - conda-forge
 dependencies:

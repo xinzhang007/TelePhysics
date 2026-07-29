@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ============================================================
-# TelePhysics — Full Pipeline
+# PhysOmni — Full Pipeline
 # ============================================================
 # Usage:
 #   bash run.sh
@@ -12,7 +12,7 @@
 set -e
 set -o pipefail
 
-echo "========== TelePhysics Pipeline =========="
+echo "========== PhysOmni Pipeline =========="
 
 # --------------------------
 # Project Root & PYTHONPATH
@@ -60,7 +60,7 @@ if [ ! -f "$CONDA_PATH" ]; then
 fi
 
 source "$CONDA_PATH"
-conda activate telephysics-pq
+conda activate physomni-pq
 
 echo "Using Python: $(which python)"
 echo "Using CUDA:   $(python -c 'import torch; print(torch.version.cuda)' 2>/dev/null || echo 'Torch not found')"
@@ -91,7 +91,7 @@ echo "[Done] Step 2"
 # --------------------------
 # Switch to simulation environment
 # --------------------------
-conda activate telephysics-sr
+conda activate physomni-sr
 
 echo "Using Python: $(which python)"
 

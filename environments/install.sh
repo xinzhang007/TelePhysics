@@ -2,22 +2,22 @@
 set -e
 
 # ============================================================
-# TelePhysics — Environment Setup
+# PhysOmni — Environment Setup
 # ============================================================
 # Creates two conda environments:
-#   1. telephysics-pa    — Segmentation, 3D mesh generation (PyTorch 2.8.0 + CUDA 12.6)
-#   2. telephysics-sr — Physics simulation, depth estimation, video synthesis
+#   1. physomni-pq — Segmentation, 3D mesh generation (PyTorch 2.8.0 + CUDA 12.6)
+#   2. physomni-sr — Physics simulation, depth estimation, video synthesis
 # ============================================================
 
 PROJECT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
 
 # ----------------------------------------------------------
-# Environment 1: telephysics (Segmentation + Mesh Generation)
+# Environment 1: physomni-pq (Segmentation + Mesh Generation)
 # ----------------------------------------------------------
-echo ">>> Creating conda environment: telephysics"
+echo ">>> Creating conda environment: physomni-pq"
 
 conda env create -f "${PROJECT_DIR}/environments/default.yml"
-conda activate telephysics-pa
+conda activate physomni-pq
 
 pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu126
 
@@ -36,19 +36,19 @@ pip install . --no-build-isolation
 cd "${PROJECT_DIR}"
 rm -rf "${TMPDIR}"
 
-echo ">>> telephysics environment ready."
+echo ">>> physomni-pq environment ready."
 
 # ----------------------------------------------------------
-# Environment 2: telephysics-sr (Simulation + Rendering)
+# Environment 2: physomni-sr (Simulation + Rendering)
 # ----------------------------------------------------------
-echo ">>> Creating conda environment: telephysics-sr"
+echo ">>> Creating conda environment: physomni-sr"
 
-conda create -y -n telephysics-sr python=3.12
-conda activate telephysics-sr
+conda create -y -n physomni-sr python=3.12
+conda activate physomni-sr
 
 pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu126
 pip install genesis-world==0.3.14
 pip install -r "${PROJECT_DIR}/environments/requirements-sr.txt"
 
-echo ">>> telephysics-sr environment ready."
+echo ">>> physomni-sr environment ready."
 echo ">>> All environments installed successfully."

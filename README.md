@@ -1,15 +1,15 @@
-# TelePhysics: Physics-Grounded Multi-Object Scene Generation from a Single Image
+# PhysOmni: Physics-Grounded Multi-Object Scene Generation from a Single Image
 
 [![ArXiv](https://img.shields.io/badge/ArXiv-2605.20290-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2605.20290)
-[![HomePage](https://img.shields.io/badge/HomePage-Visit-blue.svg?logo=homeadvisor&logoColor=f5f5f5)](https://telephysics.github.io/)
+[![HomePage](https://img.shields.io/badge/HomePage-Visit-blue.svg?logo=homeadvisor&logoColor=f5f5f5)](https://physomni.github.io/)
 [![Paper](https://img.shields.io/badge/Paper-PDF-red.svg?logo=adobeacrobatreader)](assets/paper.pdf)
 
-TelePhysics is a unified, training-free framework for holistic 3D scene generation and physically grounded video synthesis from a single input image. It supports multi-object scene reconstruction, physics simulation, and video generation with realistic interactions across diverse materials.
+PhysOmni is a unified, training-free framework for holistic 3D scene generation and physically grounded video synthesis from a single input image. It supports multi-object scene reconstruction, physics simulation, and video generation with realistic interactions across diverse materials.
 
 Supported physics materials include **rigid bodies**, **elastic solids**, **sand**, **elastoplastic materials**, **cloth**, and **liquid**.
 
 ## 🔥 News
-- **[2026-07-10]** TelePhysics has been accepted to **ACM MM 2026**! 
+- **[2026-07-10]** PhysOmni has been accepted to **ACM MM 2026**!
 ---
 
 ## 🌐 Pipeline Overview
@@ -40,8 +40,8 @@ This script creates two conda environments:
 
 | Environment | Purpose |
 |---|---|
-| `telephysics-pq` | Segmentation and 3D mesh generation, based on PyTorch 2.8.0 + CUDA 12.6 |
-| `telephysics-sr` | Physics simulation, depth estimation, and video synthesis |
+| `physomni-pq` | Segmentation and 3D mesh generation, based on PyTorch 2.8.0 + CUDA 12.6 |
+| `physomni-sr` | Physics simulation, depth estimation, and video synthesis |
 
 ---
 
@@ -87,7 +87,7 @@ demo/output_ball/wan/rendered_ball.mp4
 
 ### Run on Your Own Image
 
-To test TelePhysics with your own image, edit the variables at the top of `scripts/run.sh`:
+To test PhysOmni with your own image, edit the variables at the top of `scripts/run.sh`:
 
 ```bash
 ROOT_DIR="data"          # directory containing scene folder
@@ -182,7 +182,7 @@ Supported force fields include:
 
 ## 🧱 Supported Materials
 
-TelePhysics supports the following physical material types:
+PhysOmni supports the following physical material types:
 
 | Material Type | Method |
 |---|---|
@@ -200,8 +200,8 @@ TelePhysics supports the following physical material types:
 If you find this work useful, please consider citing:
 
 ```bibtex
-@misc{zhang2026telephysicsphysicsgroundedmultiobjectscene,
-      title={TelePhysics: Physics-Grounded Multi-Object Scene Generation from a Single Image with Real-Time Interaction}, 
+@misc{zhang2026physomniphysicsgroundedmultiobjectscene,
+      title={PhysOmni: Physics-Grounded Multi-Object Scene Generation from a Single Image with Real-Time Interaction},
       author={Xin Zhang and Yabo Chen and Yijie Fang and Wanying Qu and Haibin Huang and Chi Zhang and Feng Xu and Xuelong Li},
       year={2026},
       eprint={2605.20290},

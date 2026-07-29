@@ -1,4 +1,4 @@
-"""Shared physics constants and helpers for TelePhysics pipeline.
+"""Shared physics constants and helpers for PhysOmni pipeline.
 
 Centralises material definitions, force-field construction, surface
 defaults, and the simulation default config so that both

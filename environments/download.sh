@@ -2,7 +2,7 @@
 set -e
 
 # ============================================================
-# TelePhysics — Model Download Script
+# PhysOmni — Model Download Script
 # ============================================================
 
 pip install -U huggingface_hub
@@ -80,4 +80,3 @@ if [ ! -d "${MODELS_DIR}/big-lama" ]; then
 fi
 
 echo "All models downloaded successfully."
-
