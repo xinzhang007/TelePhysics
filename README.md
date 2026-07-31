@@ -200,8 +200,8 @@ PhysOmni supports the following physical material types:
 If you find this work useful, please consider citing:
 
 ```bibtex
-@misc{zhang2026telephysicsphysicsgroundedmultiobjectscene,
-      title={TelePhysics: Physics-Grounded Multi-Object Scene Generation from a Single Image with Real-Time Interaction},
+@misc{zhang2026physomniphysicsgroundedmultiobjectscene,
+      title={PhysOmni: Physics-Grounded Multi-Object Scene Generation from a Single Image with Real-Time Interaction},
       author={Xin Zhang and Yabo Chen and Yijie Fang and Wanying Qu and Haibin Huang and Chi Zhang and Feng Xu and Xuelong Li},
       year={2026},
       eprint={2605.20290},
